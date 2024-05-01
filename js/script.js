@@ -18,13 +18,13 @@ function init() {
     scene = new THREE.Scene();
 
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 40);
+    camera.position.set(0, 0, 8);
+
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.xr.enabled = true; // we have to enable the renderer for webxr
     container.appendChild(renderer.domElement);
-
-    window.addEventListener('resize', onWindowResize);
 
     stats = new Stats();
     container.appendChild(stats.dom);
@@ -51,10 +51,6 @@ function init() {
     orbitControls.update();
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x333333);
-    scene.environment = new RGBELoader().load('textures/texture.hdr');
-    scene.environment.mapping = THREE.EquirectangularReflectionMapping;
-    scene.fog = new THREE.Fog(0x333333, 10, 20);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
     scene.add(ambientLight);
@@ -79,7 +75,7 @@ function init() {
     loader.load( 'models/LittlestTokyo.glb', function ( gltf ) {
 
         glbModel = gltf.scene;
-        glbModel.position.set( 1, 1, 0 );
+        // glbModel.position.set( 0, 0, 0 );
         glbModel.scale.set( 0.01, 0.01, 0.01 );
         scene.add( glbModel );
 
@@ -95,6 +91,8 @@ function init() {
     } );
 
     document.body.appendChild(ARButton.createButton(renderer));
+    window.addEventListener('resize', onWindowResize);
+
 }
 
 init();
@@ -112,3 +110,8 @@ function animate() {
     stats.update();
     renderer.render( scene, camera );
 }
+
+function render() {
+    rotateModel();
+          renderer.render(scene, camera);
+      }

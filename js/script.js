@@ -26,15 +26,15 @@ function init() {
     renderer.xr.enabled = true; // we have to enable the renderer for webxr
     container.appendChild(renderer.domElement);
 
-    stats = new Stats();
-    container.appendChild(stats.dom);
+    // stats = new Stats();
+    // container.appendChild(stats.dom);
 
     controls = new OrbitControls(camera, container);
     controls.maxDistance = 9;
     controls.maxPolarAngle = THREE.MathUtils.degToRad(90);
     controls.target.set(0, 0.5, 0);
     controls.enablePan = false;
-    controls.update();
+    // controls.update();
 
     var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
     light.position.set(0.5, 1, 0.25);
@@ -46,7 +46,7 @@ function init() {
     loader.load('models/house.glb', function (gltf) {
         glbModel = gltf.scene;
         glbModel.scale.set(.1, .1, .1);
-        glbModel.position.set(0, -4, -10);
+        glbModel.position.set(0, 0, -10);
         glbModel.rotation.set(0, -90, 0);
         scene.add(glbModel);
         console.log("Model added to scene");

@@ -29,11 +29,11 @@ function init() {
     // stats = new Stats();
     // container.appendChild(stats.dom);
 
-    controls = new OrbitControls(camera, container);
-    controls.maxDistance = 9;
-    controls.maxPolarAngle = THREE.MathUtils.degToRad(90);
-    controls.target.set(0, 0.5, 0);
-    controls.enablePan = false;
+    // controls = new OrbitControls(camera, container);
+    // controls.maxDistance = 9;
+    // controls.maxPolarAngle = THREE.MathUtils.degToRad(90);
+    // controls.target.set(0, 0.5, 0);
+    // controls.enablePan = false;
     // controls.update();
 
     var light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);

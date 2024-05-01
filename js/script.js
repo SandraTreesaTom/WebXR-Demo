@@ -6,7 +6,7 @@ import { ARButton } from 'https://unpkg.com/three@0.126.0/examples/jsm/webxr/ARB
     
     let camera, scene, renderer;
     let loader;
-    let mixer,stats, glbModel, orbitControls, controls;
+    let stats, glbModel, controls;
 
 init();
 animate();
@@ -46,7 +46,8 @@ function init() {
     loader.load('models/house.glb', function (gltf) {
         glbModel = gltf.scene;
         glbModel.scale.set(.1, .1, .1);
-        glbModel.position.set(0, 0, -10);
+        glbModel.position.z = -10;
+        // glbModel.position.set(0, 0, -10);
         glbModel.rotation.set(0, -90, 0);
         scene.add(glbModel);
         console.log("Model added to scene");

@@ -46,7 +46,7 @@ function init() {
     loader.load('models/house.glb', function (gltf) {
         glbModel = gltf.scene;
         glbModel.scale.set(.1, .1, .1);
-        // glbModel.position.set(0, -.04, 0);
+        glbModel.position.set(0, -4, -10);
         glbModel.rotation.set(0, -90, 0);
         scene.add(glbModel);
         console.log("Model added to scene");
